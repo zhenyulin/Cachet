@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Component;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Component\AddComponentCommand;
+use CachetHQ\Cachet\Bus\Events\Component\ComponentWasAddedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Component\AddComponentCommandHandler;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
 
@@ -25,6 +26,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class AddComponentCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([ComponentWasAddedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {
