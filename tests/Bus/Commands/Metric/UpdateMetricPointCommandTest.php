@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Metric;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Metric\UpdateMetricPointCommand;
+use CachetHQ\Cachet\Bus\Events\Metric\MetricPointWasUpdatedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Metric\UpdateMetricPointCommandHandler;
 use CachetHQ\Cachet\Models\Metric;
 use CachetHQ\Cachet\Models\MetricPoint;
@@ -27,6 +28,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class UpdateMetricPointCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([MetricPointWasUpdatedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Incident;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Incident\UpdateIncidentCommand;
+use CachetHQ\Cachet\Bus\Events\Incident\IncidentWasUpdatedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Incident\UpdateIncidentCommandHandler;
 use CachetHQ\Cachet\Models\Incident;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -26,6 +27,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class UpdateIncidentCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([IncidentWasUpdatedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

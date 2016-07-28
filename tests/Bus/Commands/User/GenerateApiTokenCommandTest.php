@@ -27,6 +27,11 @@ class GenerateApiTokenCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([]);
+    }
+
     protected function getObjectAndParams()
     {
         $params = ['user' => new User()];

@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\User;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\User\InviteUserCommand;
+use CachetHQ\Cachet\Bus\Events\User\UserWasInvitedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\User\InviteUserCommandHandler;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
 
@@ -25,6 +26,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class InviteUserCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([UserWasInvitedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\ComponentGroup;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\ComponentGroup\UpdateComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Events\ComponentGroup\ComponentGroupWasUpdatedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\ComponentGroup\UpdateComponentGroupCommandHandler;
 use CachetHQ\Cachet\Models\ComponentGroup;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -26,6 +27,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class UpdateComponentGroupCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([ComponentGroupWasUpdatedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

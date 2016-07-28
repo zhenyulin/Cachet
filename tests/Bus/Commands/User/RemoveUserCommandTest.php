@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\User;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\User\RemoveUserCommand;
+use CachetHQ\Cachet\Bus\Events\User\UserWasRemovedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\User\RemoveUserCommandHandler;
 use CachetHQ\Cachet\Models\User;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -26,6 +27,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class RemoveUserCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([UserWasRemovedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Metric;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Metric\RemoveMetricCommand;
+use CachetHQ\Cachet\Bus\Events\Metric\MetricWasRemovedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Metric\RemoveMetricCommandHandler;
 use CachetHQ\Cachet\Models\Metric;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -26,6 +27,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class RemoveMetricCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([MetricWasRemovedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

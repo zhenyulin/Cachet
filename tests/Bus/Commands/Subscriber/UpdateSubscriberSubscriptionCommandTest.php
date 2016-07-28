@@ -14,6 +14,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Subscriber;
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Subscriber\UpdateSubscriberSubscriptionCommand;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Subscriber\UpdateSubscriberSubscriptionCommandHandler;
+use CachetHQ\Cachet\Bus\Events\Subscriber\SubscriberHasUpdatedSubscriptionsEvent;
 use CachetHQ\Cachet\Models\Subscriber;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
 
@@ -25,6 +26,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class UpdateSubscriberSubscriptionCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([SubscriberHasUpdatedSubscriptionsEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

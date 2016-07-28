@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Metric;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Metric\RemoveMetricPointCommand;
+use CachetHQ\Cachet\Bus\Events\Metric\MetricPointWasRemovedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Metric\RemoveMetricPointCommandHandler;
 use CachetHQ\Cachet\Models\MetricPoint;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -26,6 +27,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class RemoveMetricPointCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([MetricPointWasRemovedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

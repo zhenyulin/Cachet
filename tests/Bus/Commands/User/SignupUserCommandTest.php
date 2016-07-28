@@ -25,6 +25,11 @@ class SignupUserCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([]);
+    }
+
     protected function getObjectAndParams()
     {
         $params = [

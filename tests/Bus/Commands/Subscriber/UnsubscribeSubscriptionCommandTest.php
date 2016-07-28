@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Subscriber;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Subscriber\UnsubscribeSubscriptionCommand;
+use CachetHQ\Cachet\Bus\Events\Subscriber\SubscriberHasUpdatedSubscriptionsEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Subscriber\UnsubscribeSubscriptionCommandHandler;
 use CachetHQ\Cachet\Models\Subscription;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -25,6 +26,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class UnsubscribeSubscriptionCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([SubscriberHasUpdatedSubscriptionsEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\ComponentGroup;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\ComponentGroup\RemoveComponentGroupCommand;
+use CachetHQ\Cachet\Bus\Events\ComponentGroup\ComponentGroupWasRemovedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\ComponentGroup\RemoveComponentGroupCommandHandler;
 use CachetHQ\Cachet\Models\ComponentGroup;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -26,6 +27,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class RemoveComponentGroupCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([ComponentGroupWasRemovedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

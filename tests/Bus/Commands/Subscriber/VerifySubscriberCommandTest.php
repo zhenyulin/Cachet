@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Subscriber;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Subscriber\VerifySubscriberCommand;
+use CachetHQ\Cachet\Bus\Events\Subscriber\SubscriberHasVerifiedEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Subscriber\VerifySubscriberCommandHandler;
 use CachetHQ\Cachet\Models\Subscriber;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -26,6 +27,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class VerifySubscriberCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([SubscriberHasVerifiedEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {

@@ -13,6 +13,7 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Incident;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Incident\ReportMaintenanceCommand;
+use CachetHQ\Cachet\Bus\Events\Incident\MaintenanceWasScheduledEvent;
 use CachetHQ\Cachet\Bus\Handlers\Commands\Incident\ReportMaintenanceCommandHandler;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
 
@@ -25,6 +26,11 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
 class ReportMaintenanceCommandTest extends AbstractTestCase
 {
     use CommandTrait;
+
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([MaintenanceWasScheduledEvent::class]);
+    }
 
     protected function getObjectAndParams()
     {
