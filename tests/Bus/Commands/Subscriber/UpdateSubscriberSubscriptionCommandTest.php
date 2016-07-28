@@ -13,8 +13,8 @@ namespace CachetHQ\Tests\Cachet\Bus\Commands\Subscriber;
 
 use AltThree\TestBench\CommandTrait;
 use CachetHQ\Cachet\Bus\Commands\Subscriber\UpdateSubscriberSubscriptionCommand;
-use CachetHQ\Cachet\Bus\Handlers\Commands\Subscriber\UpdateSubscriberSubscriptionCommandHandler;
 use CachetHQ\Cachet\Bus\Events\Subscriber\SubscriberHasUpdatedSubscriptionsEvent;
+use CachetHQ\Cachet\Bus\Handlers\Commands\Subscriber\UpdateSubscriberSubscriptionCommandHandler;
 use CachetHQ\Cachet\Models\Subscriber;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
 
