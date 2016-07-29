@@ -28,6 +28,9 @@ class RemoveIncidentCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([IncidentWasRemovedEvent::class]);

@@ -28,6 +28,9 @@ class RemoveComponentGroupCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([ComponentGroupWasRemovedEvent::class]);

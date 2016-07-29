@@ -27,6 +27,9 @@ class AddUserCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([UserWasAddedEvent::class]);

@@ -28,6 +28,9 @@ class UpdateComponentCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([ComponentWasUpdatedEvent::class]);

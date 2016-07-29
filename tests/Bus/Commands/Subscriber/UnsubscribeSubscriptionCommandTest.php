@@ -22,11 +22,15 @@ use CachetHQ\Tests\Cachet\AbstractTestCase;
  * This is the unsubscribe subscriber command test class.
  *
  * @author Joseph Cohen <joe@alt-three.com>
+ * @author James Brooks <james@alt-three.com>
  */
 class UnsubscribeSubscriptionCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([SubscriberHasUpdatedSubscriptionsEvent::class]);

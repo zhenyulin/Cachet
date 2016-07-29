@@ -28,6 +28,9 @@ class UpdateMetricCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([MetricWasUpdatedEvent::class]);

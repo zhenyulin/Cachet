@@ -28,6 +28,9 @@ class RemoveMetricCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([MetricWasRemovedEvent::class]);

@@ -27,6 +27,9 @@ class UpdateSubscriberSubscriptionCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([SubscriberHasUpdatedSubscriptionsEvent::class]);

@@ -27,6 +27,9 @@ class ReportIncidentCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([IncidentWasReportedEvent::class]);

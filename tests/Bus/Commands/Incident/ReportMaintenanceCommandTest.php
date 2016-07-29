@@ -27,6 +27,9 @@ class ReportMaintenanceCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([MaintenanceWasScheduledEvent::class]);

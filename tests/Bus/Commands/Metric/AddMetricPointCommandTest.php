@@ -28,6 +28,9 @@ class AddMetricPointCommandTest extends AbstractTestCase
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
     public function setEventExpectations()
     {
         $this->onlyExpectsEvents([MetricPointWasAddedEvent::class]);
