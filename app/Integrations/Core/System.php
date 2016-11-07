@@ -57,6 +57,7 @@ class System implements SystemContract
         $status = [
             'system_status'  => 'info',
             'system_message' => trans_choice('cachet.service.bad', $totalComponents),
+            'system_icon'    => 'icon ion-eye',
             'favicon'        => 'favicon-high-alert',
         ];
 
@@ -64,6 +65,7 @@ class System implements SystemContract
             $status = [
                 'system_status'  => 'danger',
                 'system_message' => trans_choice('cachet.service.major', $totalComponents),
+                'system_icon'    => 'icon ion-alert-circled',
                 'favicon'        => 'favicon-high-alert',
             ];
         } elseif (Component::enabled()->notStatus(1)->count() === 0) {
@@ -80,6 +82,7 @@ class System implements SystemContract
                 $status = [
                     'system_status'  => 'success',
                     'system_message' => trans_choice('cachet.service.good', $totalComponents),
+                    'system_icon'    => 'icon ion-checkmark-circled greens',
                     'favicon'        => 'favicon',
                 ];
             }
