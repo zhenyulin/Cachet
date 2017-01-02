@@ -82,10 +82,7 @@ class StatusPageController extends AbstractApiController
         return View::make('index')
             ->withDaysToShow($daysToShow)
             ->withAllIncidents($allIncidents)
-            ->withCanPageForward((bool) $today->gt($startDate))
-            ->withCanPageBackward(Incident::where('occurred_at', '<', $startDate->format('Y-m-d'))->count() > 0)
-            ->withPreviousDate($startDate->copy()->subDays($daysToShow)->toDateString())
-            ->withNextDate($startDate->copy()->addDays($daysToShow)->toDateString());
+            ->withFeeds(true);
     }
 
     /**
@@ -116,7 +113,7 @@ class StatusPageController extends AbstractApiController
      */
     public function showIncident(Incident $incident)
     {
-        return View::make('single-incident')->withIncident($incident);
+        return View::make('single-incident')->withIncident($incident)->withFeeds(false);
     }
 
     /**
@@ -128,7 +125,7 @@ class StatusPageController extends AbstractApiController
      */
     public function showSchedule(Schedule $schedule)
     {
-        return View::make('single-schedule')->withSchedule($schedule);
+        return View::make('single-schedule')->withSchedule($schedule)->withFeeds(false);
     }
 
     /**
