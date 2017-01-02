@@ -11,6 +11,7 @@
 
 namespace CachetHQ\Cachet\Console\Commands;
 
+use CachetHQ\Cachet\Models\User;
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
 use Illuminate\Console\Command;
@@ -55,6 +56,7 @@ class InstallCommand extends Command
         $this->configureDrivers();
         $this->configureMail();
         $this->configureCachet();
+        $this->configureUser();
 
         $this->info('Cachet is installed ⚡');
     }
@@ -109,9 +111,9 @@ class InstallCommand extends Command
         ], $default);
 
         $config['DB_DRIVER'] = $this->choice('Which database driver do you want to use?', [
-            'mysql'      => 'MySQL',
-            'postgresql' => 'PostgreSQL',
-            'sqlite'     => 'SQLite',
+            'mysql'  => 'MySQL',
+            'pgsql'  => 'PostgreSQL',
+            'sqlite' => 'SQLite',
         ], $config['DB_DRIVER']);
 
         if ($config['DB_DRIVER'] === 'sqlite') {
@@ -279,9 +281,11 @@ class InstallCommand extends Command
     /**
      * Configure Cachet.
      *
+     * @param array $config
+     *
      * @return void
      */
-    protected function configureCachet()
+    protected function configureCachet(array $config = [])
     {
         if ($this->confirm('Do you wish to use Cachet Beacon?')) {
             $config['CACHET_BEACON'] = 'true';
@@ -295,6 +299,27 @@ class InstallCommand extends Command
         foreach ($config as $setting => $value) {
             $this->writeEnv($setting, $value);
         }
+    }
+
+    /**
+     * Configure the fisrt user.
+     *
+     * @return void
+     */
+    protected function configureUser()
+    {
+        if (!$this->confirm('Do you want to create an admin user?')) {
+            return;
+        }
+
+        $user = [
+            'username' => $this->ask('Please enter your username'),
+            'email'    => $this->ask('Please enter your email'),
+            'password' => $this->secret('Please enter your password'),
+            'level'    => User::LEVEL_ADMIN,
+        ];
+
+        User::create($user);
     }
 
     /**
