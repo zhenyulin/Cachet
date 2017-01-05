@@ -15,6 +15,7 @@ use CachetHQ\Cachet\Models\User;
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
 use Illuminate\Console\Command;
+use Illuminate\Contracts\Console\Kernel;
 
 /**
  * This is the install command class.
@@ -377,7 +378,7 @@ class InstallCommand extends Command
     {
         $app = require $this->laravel->bootstrapPath().'/app.php';
 
-        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+        $app->make(Kernel::class)->bootstrap();
     }
 
     /**
