@@ -303,7 +303,7 @@ class InstallCommand extends Command
     }
 
     /**
-     * Configure the fisrt user.
+     * Configure the first user.
      *
      * @return void
      */
