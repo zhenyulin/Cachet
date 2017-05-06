@@ -30,7 +30,7 @@
             {{ trans('cachet.components.group.other') }}
 
             <div class="pull-right">
-                <i class="{{ $componentGroup->collapse_class }} group-toggle"></i>
+                <i class="ion-ios-minus-outline group-toggle"></i>
             </div>
         </li>
 
