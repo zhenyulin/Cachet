@@ -35,6 +35,7 @@
         "alt-three/validator": "^4.0",
         "aws/aws-sdk-php": "^3.7",
         "barryvdh/laravel-cors": "^0.11.0",
+        "cachethq/cocoon": "^1.0@dev",
         "doctrine/dbal": "2.5.13",
         "fideloper/proxy": "^4.0",
         "graham-campbell/binput": "^5.0",
