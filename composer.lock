@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c918dd951e977610ed1482a203b45e2",
+    "content-hash": "f9adb31a613a579e45344af8ede85407",
     "packages": [
         {
             "name": "alt-three/badger",
@@ -654,20 +654,20 @@
         },
         {
             "name": "danielstjules/stringy",
-            "version": "2.4.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "edbda419cbe4bcc3cb200b7c9811cb6597bf058b"
+                "reference": "df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/edbda419cbe4bcc3cb200b7c9811cb6597bf058b",
-                "reference": "edbda419cbe4bcc3cb200b7c9811cb6597bf058b",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e",
+                "reference": "df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "php": ">=5.4.0",
                 "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
@@ -706,7 +706,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2017-03-02T20:43:29+00:00"
+            "time": "2017-06-12T01:10:27+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2233,33 +2233,41 @@
         },
         {
             "name": "laravolt/avatar",
-            "version": "1.8.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravolt/avatar.git",
-                "reference": "7ab8f07333410ddc6f833bd8460fc9bdcab67fb3"
+                "reference": "68293c983d08caf11a668613a958325b94389fc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravolt/avatar/zipball/7ab8f07333410ddc6f833bd8460fc9bdcab67fb3",
-                "reference": "7ab8f07333410ddc6f833bd8460fc9bdcab67fb3",
+                "url": "https://api.github.com/repos/laravolt/avatar/zipball/68293c983d08caf11a668613a958325b94389fc8",
+                "reference": "68293c983d08caf11a668613a958325b94389fc8",
                 "shasum": ""
             },
             "require": {
-                "danielstjules/stringy": "~2.2",
+                "danielstjules/stringy": "~3.1",
                 "illuminate/cache": "~5.2",
                 "illuminate/support": "~5.2",
                 "intervention/image": "^2.1",
-                "php": ">=5.5.0"
+                "php": ">=7.0"
             },
             "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.*"
+                "mockery/mockery": "^0.9.1",
+                "phpunit/phpunit": "~6.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravolt\\Avatar\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Avatar": "Laravolt\\Avatar\\Facade"
+                    }
                 }
             },
             "autoload": {
@@ -2279,14 +2287,14 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Display avatar as base64",
+            "description": "Turn name, email, and any other string into beautiful, initial-based avatar.",
             "homepage": "https://github.com/laravolt/avatar",
             "keywords": [
                 "avatar",
                 "laravel",
                 "laravolt"
             ],
-            "time": "2017-06-02T16:39:53+00:00"
+            "time": "2018-11-08T23:46:21+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -4178,16 +4186,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8"
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d0cd638f4634c16d8df4508e847f14e9e43168b8",
-                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
                 "shasum": ""
             },
             "require": {
@@ -4233,7 +4241,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2018-09-21T13:07:52+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -6825,7 +6833,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "nexmo/client": 10
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
