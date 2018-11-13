@@ -47,7 +47,7 @@
         "laravolt/avatar": "^1.8",
         "mccool/laravel-auto-presenter": "^7.0",
         "nexmo/client": "@beta",
-        "pragmarx/google2fa": "^0.7.1",
+        "pragmarx/google2fa": "^4.0.0",
         "predis/predis": "^1.1",
         "roumen/feed": "^2.10",
         "twig/twig": "^1"
