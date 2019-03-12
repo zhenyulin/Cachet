@@ -10,10 +10,6 @@
 
 Cachet is a beautiful and powerful open source status page system.
 
-## Community
-
-You can now [join our Slack community!](http://cachethq-slack.herokuapp.com)
-
 ## Overview
 
 - List your service components
@@ -25,6 +21,10 @@ You can now [join our Slack community!](http://cachethq-slack.herokuapp.com)
 - Multi-lingual
 - Subscriber notifications via email
 - Two factor authentication
+
+## Community
+
+You can now [join our Slack community!](http://cachethq-slack.herokuapp.com)
 
 ## Requirements
 
@@ -47,7 +47,7 @@ Here are some useful quick links:
 
 To test out the demo, you may login to the [Dashboard](https://dev.cachethq.io/dashboard) with the following:
 
-- **Username:** `test` or `test@test.com`
+- **Username:** `test` or `test@example.com`
 - **Password:** `test123`
 
 > The demo resets every 30 minutes.
@@ -72,4 +72,4 @@ A professional **installation service** is offered by Alt Three Services Limited
 
 Thank you to the following for [sponsoring](https://patreon.com/jbrooksuk) Cachet.
 
-![Exascale](/docs/images/sponsorships/exascale.jpg)
+[![Exascale](/docs/images/sponsorships/exascale.jpg)](https://www.exascale.co.uk/)
